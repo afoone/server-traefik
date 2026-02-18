@@ -21,6 +21,8 @@ certificatesResolvers:
     acme:
       email: afoone@hotmail.com
       storage: /letsencrypt/acme.json
+      # Para pruebas sin gastar cuota de Let's Encrypt, descomenta la línea siguiente:
+      # caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
       httpChallenge:
         entryPoint: web
 
