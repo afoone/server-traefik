@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  whoami:
+    image: traefik/whoami
+    networks:
+      - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.whoami.rule=Host(`whoami.yourturn.space`)"
+        - "traefik.http.routers.whoami.entrypoints=websecure"
+        - "traefik.http.routers.whoami.tls.certresolver=letsencrypt"
+
+networks:
+  traefik-public:
+    external: true
+
